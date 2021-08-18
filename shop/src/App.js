@@ -28,9 +28,26 @@ function App() {
         </Container>
       </Navbar>
 
+      <Jumbotron />
 
     </div>
   );
 }
+
+function Jumbotron() {
+  return (
+    <div>
+      <h1>20% Season Off</h1>
+      <p>
+        asdfasdf
+      </p>
+      <p>
+        <Button variant="primary">Learn more</Button>
+      </p>
+    </div>
+  )
+}
+
+
 
 export default App;
