@@ -36,7 +36,7 @@ function App() {
 
 function Jumbotron() {
   return (
-    <div>
+    <div className="background">
       <h1>20% Season Off</h1>
       <p>
         asdfasdf
