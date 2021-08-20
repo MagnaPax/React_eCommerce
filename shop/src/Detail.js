@@ -1,7 +1,12 @@
 // 컴포넌트 만들때는 import React 꼭 해줘야 됨
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 
 function Detail() {
+
+    // 방문기록 등을 저장해놓는 object
+    let history = useHistory();
+
     return (
         <div className="container">
             <div className="row">
@@ -13,6 +18,10 @@ function Detail() {
                     <p>상품설명</p>
                     <p>120000원</p>
                     <button className="btn btn-danger">주문하기</button>
+                    <button className="btn btn-danger" onClick={() => {
+                        // history.goBack(); // 얘도 똑같은기능
+                        history.push('/');
+                    }}>뒤로가기</button>
                 </div>
             </div>
         </div>
