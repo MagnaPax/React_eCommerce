@@ -62,14 +62,16 @@ function App() {
 
         {/* 디테일페이지 */}
         {/* Switch 때문에 얘만 선택됨 */}
-        <Route path="/detail">
+        {/* url 의 파라미터. 콜론(:) 뒤에 어떤 주소(문자)를 입력하든 이 페이지 보여주겠다 */}
+        {/* /detail/:id/:id2 이런식으로 여러개 사용 가능 */}
+        <Route path="/detail/:id">
           <Detail shoes={shoes} />
         </Route>
 
 
-        {/* /:id 는 /모든문자 라는 의미 */}
+        {/* /:hahaha 는 /뒤의 모든문자 라는 의미 */}
         {/* Switch 때문에 선택되지 못함 */}
-        <Route path="/:id">
+        <Route path="/:hahaha">
           <div>주소창에 / 뒤에 아무문자(주소)가 와도 이것 보여줘</div>
         </Route>
 
