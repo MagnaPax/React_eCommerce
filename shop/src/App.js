@@ -1,10 +1,14 @@
 /* eslint-disable */
 import './App.css';
 import { Nav, Navbar, NavDropdown, MenuItem, Tabs, ButtonToolbar, Button, Table, ButtonGroup, Row, Col, Grid, Panel, FormGroup, FormControl, Container, } from 'react-bootstrap';
-
+import React, { useState } from 'react';
+import Data from './data.js';
 
 
 function App() {
+
+  let [shoes, shoes변경] = useState(Data);
+
   return (
     <div className="App">
 
