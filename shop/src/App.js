@@ -38,21 +38,13 @@ function App() {
         <div className="row">
 
 
-          <div className="col-md-4">
-            <img src="https://codingapple1.github.io/shop/shoes1.jpg" width="100%" />
-            <h4>상품명</h4>
-            <p>상품설명 & 가격</p>
-          </div>
-          <div className="col-md-4">
-            <img src="https://codingapple1.github.io/shop/shoes2.jpg" width="100%" />
-            <h4>상품명</h4>
-            <p>상품설명 & 가격</p>
-          </div>
-          <div className="col-md-4">
-            <img src="https://codingapple1.github.io/shop/shoes3.jpg" width="100%" />
-            <h4>상품명</h4>
-            <p>상품설명 & 가격</p>
-          </div>
+          {
+            shoes.map((el, index) => {
+              return (
+                <Card productInfo={el} index={index} />
+              )
+            })
+          }
 
 
         </div>
@@ -75,6 +67,27 @@ function Jumbotron() {
         <Button variant="primary">Learn more</Button>
       </p>
     </div>
+  )
+}
+
+
+function Card(card) {
+
+  const shoeTitle = card.productInfo.title;
+  const shoeContent = card.productInfo.content;
+  const shoePrice = card.productInfo.price;
+
+  const picNum = card.index + 1;
+  const picPath = 'https://codingapple1.github.io/shop/shoes' + picNum + '.jpg';
+
+  return (
+    <>
+      <div className="col-md-4">
+        <img src={picPath} alt="신발사진" width="100%" />
+        <h4>{shoeTitle}</h4>
+        <p>{shoeContent} & {shoePrice}</p>
+      </div>
+    </>
   )
 }
 
