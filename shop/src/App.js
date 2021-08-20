@@ -62,7 +62,9 @@ function App() {
 
         {/* 디테일페이지 */}
         {/* Switch 때문에 얘만 선택됨 */}
-        <Route path="/detail" component={Detail} />
+        <Route path="/detail">
+          <Detail shoes={shoes} />
+        </Route>
 
 
         {/* /:id 는 /모든문자 라는 의미 */}

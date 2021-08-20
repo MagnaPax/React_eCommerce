@@ -2,7 +2,7 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 
-function Detail() {
+function Detail(props) {
 
     // 방문기록 등을 저장해놓는 object
     let history = useHistory();
