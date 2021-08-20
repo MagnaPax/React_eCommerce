@@ -41,7 +41,7 @@ function App() {
           {
             shoes.map((el, i) => {
               return (
-                <Card productInfo={el} index={i} />
+                <Card productInfo={el} index={i} key={i} />
               )
             })
           }
