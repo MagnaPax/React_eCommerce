@@ -39,9 +39,9 @@ function App() {
 
 
           {
-            shoes.map((el, index) => {
+            shoes.map((el, i) => {
               return (
-                <Card productInfo={el} index={index} />
+                <Card productInfo={el} index={i} />
               )
             })
           }
@@ -77,8 +77,7 @@ function Card(card) {
   const shoeContent = card.productInfo.content;
   const shoePrice = card.productInfo.price;
 
-  const picNum = card.index + 1;
-  const picPath = 'https://codingapple1.github.io/shop/shoes' + picNum + '.jpg';
+  const picPath = 'https://codingapple1.github.io/shop/shoes' + (card.index + 1) + '.jpg';
 
   return (
     <>
