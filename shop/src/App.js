@@ -34,29 +34,44 @@ function App() {
       </Navbar>
 
 
-      {/* 메인페이지 */}
-      <Route exact path="/">
+      {/* Route : 페이지 나누기. 이 주소가 입력되면 보여줄 페이지
+      Link : 페이지 이동. to 뒤에 나온 주소로 그냥 이동
+      Switch : 중복방지. 스위치처럼 하나 올라가면 하나 내려가듯 중복 매칭된 Route 들 중에 맨 위에 매칭된 것만 동작시킴 */}
 
-        <Jumbotron />
+      <Switch>
 
-        <div className="container">
-          <div className="row">
-            {
-              shoes.map((el, i) => {
-                return (
-                  <Card productInfo={el} index={i} key={i} />
-                )
-              })
-            }
+        {/* 메인페이지 */}
+        <Route exact path="/">
+
+          <Jumbotron />
+
+          <div className="container">
+            <div className="row">
+              {
+                shoes.map((el, i) => {
+                  return (
+                    <Card productInfo={el} index={i} key={i} />
+                  )
+                })
+              }
+            </div>
           </div>
-        </div>
 
-      </Route>
+        </Route>
 
 
-      {/* 디테일페이지 */}
-      <Route path="/detail" component={Detail} />
+        {/* 디테일페이지 */}
+        {/* Switch 때문에 얘만 선택됨 */}
+        <Route path="/detail" component={Detail} />
 
+
+        {/* /:id 는 /모든문자 라는 의미 */}
+        {/* Switch 때문에 선택되지 못함 */}
+        <Route path="/:id">
+          <div>주소창에 / 뒤에 아무문자(주소)가 와도 이것 보여줘</div>
+        </Route>
+
+      </Switch>
 
     </div>
   );
