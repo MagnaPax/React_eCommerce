@@ -33,24 +33,31 @@ function App() {
         </Container>
       </Navbar>
 
-      <Jumbotron />
 
-      <div className="container">
-        <div className="row">
+      {/* 메인페이지 */}
+      <Route exact path="/">
 
+        <Jumbotron />
 
-          {
-            shoes.map((el, i) => {
-              return (
-                <Card productInfo={el} index={i} key={i} />
-              )
-            })
-          }
-
-
+        <div className="container">
+          <div className="row">
+            {
+              shoes.map((el, i) => {
+                return (
+                  <Card productInfo={el} index={i} key={i} />
+                )
+              })
+            }
+          </div>
         </div>
-      </div>
 
+      </Route>
+
+
+      {/* 디테일페이지 */}
+      <Route path="/detail">
+        <div>디테일페이지</div>
+      </Route>
 
 
     </div>
