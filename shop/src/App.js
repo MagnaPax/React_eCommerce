@@ -55,9 +55,7 @@ function App() {
 
 
       {/* 디테일페이지 */}
-      <Route path="/detail">
-        <div>디테일페이지</div>
-      </Route>
+      <Route path="/detail" component={Detail} />
 
 
     </div>
