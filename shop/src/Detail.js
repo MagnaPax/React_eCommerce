@@ -2,6 +2,7 @@
 import React from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 import styled from 'styled-components';
+import './Detail.scss';
 
 
 function Detail(props) {
@@ -38,6 +39,7 @@ function Detail(props) {
       <박스>
         <제목 색상={'red'} >Detail</제목>
         <제목 색상='blue' >Detail</제목>
+        <제목 className="detailPage" >상세페이지</제목>
       </박스>
       <div className="row">
         <div className="col-md-6">
