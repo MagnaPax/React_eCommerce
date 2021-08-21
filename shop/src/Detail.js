@@ -1,11 +1,17 @@
 // 컴포넌트 만들때는 import React 꼭 해줘야 됨
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 import styled from 'styled-components';
 import './Detail.scss';
 
 
 function Detail(props) {
+
+  let [alert상태, alert상태변경] = useState(true);
+
+  useEffect(() => {
+    let 타이머 = setTimeout(() => { alert상태변경(false) }, 2000)
+  })
 
   // 방문기록 등을 저장해놓는 object
   let history = useHistory();
@@ -42,12 +48,18 @@ function Detail(props) {
         <제목 className="detailPage" >상세페이지</제목>
       </박스>
 
-      <div className="my-alert">
+      {
+        alert상태 === true
+          ? <Alert />
+          : null
+      }
+
+      {/* <div className="my-alert">
         <p>재고가 얼마 남지 않았습니다</p>
       </div>
       <div className="my-alert-yellow">
         <p>재고가 얼마 남지 않았습니다</p>
-      </div>
+      </div> */}
 
       <div className="row">
         <div className="col-md-6">
@@ -67,6 +79,20 @@ function Detail(props) {
     </div>
   )
 };
+
+
+function Alert() {
+  return (
+    <>
+      <div className="my-alert">
+        <p>재고가 얼마 남지 않았습니다</p>
+      </div>
+      <div className="my-alert-yellow">
+        <p>재고가 얼마 남지 않았습니다</p>
+      </div>
+    </>
+  )
+}
 
 
 class Detail2 extends React.Component {
