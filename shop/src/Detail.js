@@ -13,10 +13,10 @@ function Detail(props) {
 
     // 현재 /:id 자리에 입력한 값과 영구번호가 같은 
     // {상품데이터}를 찾아서 데이터바인딩
-    const shoeInfo = props.shoes.find(x => x.id == id);
-    const shoeTitle = shoeInfo.title;
-    const shoeContent = shoeInfo.content;
-    const shoePrice = shoeInfo.price;
+    const 주소창id와같은상품 = props.shoes.find(x => x.id == id);
+    const shoeTitle = 주소창id와같은상품.title;
+    const shoeContent = 주소창id와같은상품.content;
+    const shoePrice = 주소창id와같은상품.price;
 
 
     return (
