@@ -7,11 +7,18 @@ import './Detail.scss';
 
 function Detail(props) {
 
-  let [alert상태, alert상태변경] = useState(true);
+  let [alert1상태, alert1상태변경] = useState(true);
+  let [alert2상태, alert2상태변경] = useState(true);
 
   useEffect(() => {
-    let 타이머 = setTimeout(() => { alert상태변경(false) }, 2000)
-  })
+    let 타이머 = setTimeout(() => { alert1상태변경(false) }, 2000)
+    return () => { clearTimeout(타이머) } // 에러방지. 만약2초 되기전 뒤로간다면?
+  }, []) // 딱 한 번만 실행됨
+
+  useEffect(() => {
+    let 타이머 = setTimeout(() => { alert2상태변경(false) }, 3000)
+    return () => { clearTimeout(타이머) }
+  }, [alert2상태]) // 'alert2상태' 가 변경될때만 실행됨
 
   // 방문기록 등을 저장해놓는 object
   let history = useHistory();
@@ -49,8 +56,21 @@ function Detail(props) {
       </박스>
 
       {
-        alert상태 === true
-          ? <Alert />
+        alert1상태 === true
+          ? (
+            <div className="my-alert">
+              <p>재고가 얼마 남지 않았습니다</p>
+            </div>
+          )
+          : null
+      }
+      {
+        alert2상태 === true
+          ? (
+            <div className="my-alert-yellow">
+              <p>재고가 얼마 남지 않았습니다</p>
+            </div>
+          )
           : null
       }
 
@@ -81,20 +101,6 @@ function Detail(props) {
 };
 
 
-function Alert() {
-  return (
-    <>
-      <div className="my-alert">
-        <p>재고가 얼마 남지 않았습니다</p>
-      </div>
-      <div className="my-alert-yellow">
-        <p>재고가 얼마 남지 않았습니다</p>
-      </div>
-    </>
-  )
-}
-
-
 class Detail2 extends React.Component {
   // 컴포넌트가 Mount(등장) 되었을 때 실행할 코드
   componentDidMount() { }
@@ -102,7 +108,6 @@ class Detail2 extends React.Component {
   // 컴포넌트가 Unmount(사라지기) 직전에 실행할 코드
   componentWillUnmount() { }
 }
-
 
 
 // 이렇게 변수뿐만 아니라 함수도 export 할 수 있음
