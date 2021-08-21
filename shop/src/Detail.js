@@ -11,6 +11,13 @@ function Detail(props) {
     // 주소창의 detail 뒤의 /:id 자리에 사용자가 입력한 값이 저장됨
     let { id } = useParams();
 
+    // 현재 /:id 자리에 입력한 값과 영구번호가 같은 
+    // {상품데이터}를 찾아서 데이터바인딩
+    const shoeInfo = props.shoes.find(x => x.id == id);
+    const shoeTitle = shoeInfo.title;
+    const shoeContent = shoeInfo.content;
+    const shoePrice = shoeInfo.price;
+
 
     return (
         <div className="container">
@@ -19,9 +26,9 @@ function Detail(props) {
                     <img src="https://codingapple1.github.io/shop/shoes1.jpg" width="100%" />
                 </div>
                 <div className="col-md-6 mt-4">
-                    <h4 className="pt-5">{props.shoes[id].title}</h4>
-                    <p>{props.shoes[id].contnet}</p>
-                    <p>{props.shoes[id].price}원</p>
+                    <h4 className="pt-5">{shoeTitle}</h4>
+                    <p>{shoeContent}</p>
+                    <p>{shoePrice}원</p>
                     <button className="btn btn-danger">주문하기</button>
                     <button className="btn btn-danger" onClick={() => {
                         // history.goBack(); // 얘도 똑같은기능
