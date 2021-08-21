@@ -1,6 +1,8 @@
 // 컴포넌트 만들때는 import React 꼭 해줘야 됨
 import React from 'react';
 import { useHistory, useParams } from 'react-router-dom';
+import styled from 'styled-components';
+
 
 function Detail(props) {
 
