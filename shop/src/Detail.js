@@ -68,5 +68,16 @@ function Detail(props) {
   )
 };
 
+
+class Detail2 extends React.Component {
+  // 컴포넌트가 Mount(등장) 되었을 때 실행할 코드
+  componentDidMount() { }
+
+  // 컴포넌트가 Unmount(사라지기) 직전에 실행할 코드
+  componentWillUnmount() { }
+}
+
+
+
 // 이렇게 변수뿐만 아니라 함수도 export 할 수 있음
 export default Detail
