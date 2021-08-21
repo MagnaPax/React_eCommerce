@@ -20,9 +20,25 @@ function Detail(props) {
     const shoeContent = 주소창id와같은상품.content;
     const shoePrice = 주소창id와같은상품.price;
 
+    // CSS를 미리 입혀놓은 컴포넌트 (CSS in JS)
+    // 컴포넌트에 직접 스타일 넣기    
+    const 박스 = styled.div`
+      padding : 20px;
+    `;
+
+    // props 전달받아 사용
+    const 제목 = styled.h4`
+      font-size: 25px;
+      color: ${props => props.색상}; // 이 안의 값이 전달해준 것으로 바뀜
+    `;
+
 
     return (
         <div className="container">
+            <박스>
+                <제목 색상={'red'} >Detail</제목>
+                <제목 색상='blue' >Detail</제목>
+            </박스>
             <div className="row">
                 <div className="col-md-6">
                     <img src="https://codingapple1.github.io/shop/shoes1.jpg" width="100%" />
