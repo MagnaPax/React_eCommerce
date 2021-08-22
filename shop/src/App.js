@@ -16,6 +16,7 @@ function App() {
   return (
     <div className="App">
 
+      {/* 메뉴바*/}
       <Navbar bg="light" expand="lg">
         <Container>
           <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
@@ -64,6 +65,7 @@ function App() {
             axios.get('https://codingapple1.github.io/shop/data2.json')
               .then((result) => {
                 // 전개구문사용 ... 연산자는 [] 벗겨줌
+                // 괄호[] 벗긴 다음에 다시 괄호 씌운것
                 shoes변경([...shoes, ...result.data]);
               })
               .catch(() => {
