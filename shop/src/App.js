@@ -49,17 +49,8 @@ function App() {
 
           <Jumbotron />
 
-          <div className="container">
-            <div className="row">
-              {
-                shoes.map((el, i) => {
-                  return (
-                    <Card productInfo={el} index={i} key={i} />
-                  )
-                })
-              }
-            </div>
-          </div>
+          <ShowCards shoes={shoes} />
+
 
           <button className="btn btn-primary" onClick={() => {
             axios.get('https://codingapple1.github.io/shop/data2.json')
@@ -108,6 +99,25 @@ function Jumbotron() {
         <Button variant="primary">Learn more</Button>
       </p>
     </div>
+  )
+}
+
+
+function ShowCards(props) {
+  return (
+    <>
+      <div className="container">
+        <div className="row">
+          {
+            props.shoes.map((el, i) => {
+              return (
+                <Card productInfo={el} index={i} key={i} />
+              )
+            })
+          }
+        </div>
+      </div>
+    </>
   )
 }
 
