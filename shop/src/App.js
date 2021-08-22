@@ -12,6 +12,7 @@ function App() {
 
   let [shoes, shoes변경] = useState(Data);
 
+
   return (
     <div className="App">
 
@@ -59,6 +60,17 @@ function App() {
             </div>
           </div>
 
+          <button className="btn btn-primary" onClick={() => {
+            axios.get('https://codingapple1.github.io/shop/data2.json')
+              .then((result) => {
+                // 전개구문사용 ... 연산자는 [] 벗겨줌
+                shoes변경([...shoes, ...result.data]);
+              })
+              .catch(() => {
+                console.log('실패했어요');
+              })
+          }}>더보기</button>
+
         </Route>
 
 
@@ -79,7 +91,7 @@ function App() {
 
       </Switch>
 
-    </div>
+    </div >
   );
 }
 
