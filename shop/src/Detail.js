@@ -7,6 +7,20 @@ import './Detail.scss';
 
 function Detail(props) {
 
+  // 컴포넌트의 Lifecycle 단계
+  // 등장 ---> 업데이트(재렌더링) ---> 퇴장
+
+  // Lifecycle Hook 은 그 이름대로 이 중간중간에 훅을 걸어서 원하는 행동을 해달라고 하는것
+
+  // useEffect 훅
+  // 1) 컴포넌트가 mount 되었을 때
+  // 2) 컴포넌트가 update 될 때
+  // 3) 컴포넌트가 사라질 때
+
+  // useEffect 특징
+  // 1) 여러개 사용가능
+  // 2) return : 컴포넌트가 사라질 때 실행시키고 싶은 것
+  // 3) [] : 실행 조건들  
   let [alert1상태, alert1상태변경] = useState(true);
   let [alert2상태, alert2상태변경] = useState(true);
 
@@ -19,6 +33,8 @@ function Detail(props) {
     let 타이머 = setTimeout(() => { alert2상태변경(false) }, 3000)
     return () => { clearTimeout(타이머) }
   }, [alert2상태]) // 'alert2상태' 가 변경될때만 실행됨
+
+
 
   // 방문기록 등을 저장해놓는 object
   let history = useHistory();
@@ -74,12 +90,6 @@ function Detail(props) {
           : null
       }
 
-      {/* <div className="my-alert">
-        <p>재고가 얼마 남지 않았습니다</p>
-      </div>
-      <div className="my-alert-yellow">
-        <p>재고가 얼마 남지 않았습니다</p>
-      </div> */}
 
       <div className="row">
         <div className="col-md-6">
