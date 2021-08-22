@@ -11,6 +11,7 @@ import axios from 'axios';
 function App() {
 
   let [shoes, shoes변경] = useState(Data);
+  let [로딩중, 로딩중변경] = useState(false);
 
 
   return (
@@ -49,17 +50,30 @@ function App() {
 
           <Jumbotron />
 
-          <ShowCards shoes={shoes} />
+          {/* 로딩중 아니면 상품카드 보이게 아니면 안보이게*/}
+          {
+            로딩중 === false
+              ? <ShowCards shoes={shoes} />
+              : < Loading />
+          }
 
 
           <button className="btn btn-primary" onClick={() => {
+            // 로딩중이라는 UI띄움
+            로딩중변경(true);
+
             axios.get('https://codingapple1.github.io/shop/data2.json')
               .then((result) => {
+                // 자료를 읽어왔으니까
+                // 로딩중이라는 UI없앰
+                setTimeout(() => { 로딩중변경(false) }, 1000);
+
                 // 전개구문사용 ... 연산자는 [] 벗겨줌
                 // 괄호[] 벗긴 다음에 다시 괄호 씌운것
                 shoes변경([...shoes, ...result.data]);
               })
               .catch(() => {
+                로딩중변경(false);
                 console.log('실패했어요');
               })
           }}>더보기</button>
@@ -141,6 +155,10 @@ function Card(card) {
   )
 }
 
-
+function Loading() {
+  return (
+    <h2>로딩중</h2>
+  )
+}
 
 export default App;
