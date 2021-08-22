@@ -57,7 +57,11 @@ function App() {
               : < Loading />
           }
 
-
+          {/* Ajax
+서버에 새로고침없이 요청을 할 수 있게 도와줌
+1) JQuery 설치해서 $.ajax() 쓰든가
+2) axis 설치해서 axios.get() 쓰든가
+3) 쌩자바스크립트 fetch() 쓰든가 */}
           <button className="btn btn-primary" onClick={() => {
             // 로딩중이라는 UI띄움
             로딩중변경(true);
