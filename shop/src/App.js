@@ -5,6 +5,8 @@ import React, { useState } from 'react';
 import Data from './data.js';
 import { Link, Route, Switch } from 'react-router-dom';
 import Detail from './Detail.js';
+import axios from 'axios';
+
 
 function App() {
 
