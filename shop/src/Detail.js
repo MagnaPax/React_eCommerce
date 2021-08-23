@@ -102,7 +102,7 @@ function Detail(props) {
 
           <ShoesStock 재고={props.재고} />
 
-          <button className="btn btn-danger">주문하기</button>
+          <button className="btn btn-danger" onClick={() => { props.재고변경([9, 10, 11]) }}>주문하기</button>
           <button className="btn btn-danger" onClick={() => {
             // history.goBack(); // 얘도 똑같은기능
             history.push('/');
