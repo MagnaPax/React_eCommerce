@@ -12,6 +12,7 @@ function App() {
 
   let [shoes, shoes변경] = useState(Data);
   let [로딩중, 로딩중변경] = useState(false);
+  let [재고, 재고변경] = useState([10, 11, 12]);
 
 
   return (
@@ -90,7 +91,7 @@ function App() {
         {/* url 의 파라미터. 콜론(:) 뒤에 어떤 주소(문자)를 입력하든 이 페이지 보여주겠다 */}
         {/* /detail/:id/:id2 이런식으로 여러개 사용 가능 */}
         <Route path="/detail/:id">
-          <Detail shoes={shoes} />
+          <Detail shoes={shoes} 재고={재고} />
         </Route>
 
 

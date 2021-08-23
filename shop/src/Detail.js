@@ -99,6 +99,9 @@ function Detail(props) {
           <h4 className="pt-5">{shoeTitle}</h4>
           <p>{shoeContent}</p>
           <p>{shoePrice}원</p>
+
+          <ShoesStock 재고={props.재고} />
+
           <button className="btn btn-danger">주문하기</button>
           <button className="btn btn-danger" onClick={() => {
             // history.goBack(); // 얘도 똑같은기능
@@ -109,6 +112,14 @@ function Detail(props) {
     </div>
   )
 };
+
+
+function ShoesStock(props) {
+  return (
+    <p>재고: {props.재고[0]}</p>
+  )
+}
+
 
 
 class Detail2 extends React.Component {
