@@ -1,11 +1,16 @@
 /* eslint-disable */
 import './App.css';
 import { Nav, Navbar, NavDropdown, MenuItem, Tabs, ButtonToolbar, Button, Table, ButtonGroup, Row, Col, Grid, Panel, FormGroup, FormControl, Container, } from 'react-bootstrap';
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import Data from './data.js';
 import { Link, Route, Switch } from 'react-router-dom';
 import Detail from './Detail.js';
 import axios from 'axios';
+
+
+// ** context 만들기 **
+// 1. React.createContext() 로 같은 변수값을 공유할 범위 생성
+export let 재고context = React.createContext();
 
 
 function App() {
@@ -91,7 +96,12 @@ function App() {
         {/* url 의 파라미터. 콜론(:) 뒤에 어떤 주소(문자)를 입력하든 이 페이지 보여주겠다 */}
         {/* /detail/:id/:id2 이런식으로 여러개 사용 가능 */}
         <Route path="/detail/:id">
-          <Detail shoes={shoes} 재고={재고} 재고변경={재고변경} />
+
+          {/* ** context 만들기 ** 2. 같은 값을 공유할 HTML을 범위로 싸매기 */}
+          <재고context.Provider value={재고}>
+            <Detail shoes={shoes} 재고={재고} 재고변경={재고변경} />
+          </재고context.Provider>
+
         </Route>
 
 

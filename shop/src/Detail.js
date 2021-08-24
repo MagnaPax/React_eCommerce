@@ -1,8 +1,9 @@
 // 컴포넌트 만들때는 import React 꼭 해줘야 됨
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 import styled from 'styled-components';
 import './Detail.scss';
+import { 재고context } from './App.js';
 
 
 function Detail(props) {
@@ -100,7 +101,11 @@ function Detail(props) {
           <p>{shoeContent}</p>
           <p>{shoePrice}원</p>
 
-          <ShoesStock 재고={props.재고} />
+          {/* conText사용해서 App 컴포넌트에서 값 받아와서 사용 */}
+          <ShoesStockUsingContext />
+
+          {/* 얘는 props 사용해서 App 컴포넌트에서 값 받아옴 */}
+          {/* <ShoesStock 재고={props.재고} /> */}
 
           <button className="btn btn-danger" onClick={() => { props.재고변경([9, 10, 11]) }}>주문하기</button>
           <button className="btn btn-danger" onClick={() => {
@@ -117,6 +122,15 @@ function Detail(props) {
 function ShoesStock(props) {
   return (
     <p>재고: {props.재고[0]}</p>
+  )
+}
+
+function ShoesStockUsingContext() {
+  // ** context 만들기 **  3. 변수값을 공유받을 컴포넌트 안에서 useContex(범위이름)로 공유된 값 사용가능
+  let 재고fromApp컴포넌트 = useContext(재고context);
+
+  return (
+    <p>재고: {재고fromApp컴포넌트[0]}</p>
   )
 }
 
