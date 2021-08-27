@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import './Detail.scss';
 import { 재고context } from './App.js';
 import { Nav } from 'react-bootstrap';
+import { CSSTransition } from "react-transition-group";
 
 
 function Detail(props) {
@@ -149,7 +150,6 @@ function TabContent(props) {
   } else if (props.누른탭 === 1) {
     return <div>1번째 내용입니다</div>
   }
-
 }
 
 
