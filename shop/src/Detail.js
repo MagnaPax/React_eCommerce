@@ -4,6 +4,7 @@ import { useHistory, useParams } from 'react-router-dom';
 import styled from 'styled-components';
 import './Detail.scss';
 import { 재고context } from './App.js';
+import { Nav } from 'react-bootstrap';
 
 
 function Detail(props) {
@@ -114,6 +115,23 @@ function Detail(props) {
           }}>뒤로가기</button>
         </div>
       </div>
+
+
+      {/* Tab 기능 */}
+      {/* 부트스트랩이 제공하는 기본 기능들 적용 */}
+      {/* className="mt-5" <- margin top 을 5만큼 주기 */}
+      {/* eventKey <- 탭 버튼들마다 고유한 eventKey 부여하기 */}
+      {/* defaultActiveKey <- 기본으로 눌러진 버튼의 eventKey */}
+      <Nav className="mt-5" variant="tabs" defaultActiveKey="link-0">
+        <Nav.Item>
+          <Nav.Link eventKey="link-0">Active</Nav.Link>
+        </Nav.Item>
+        <Nav.Item>
+          <Nav.Link eventKey="link-1">Option 2</Nav.Link>
+        </Nav.Item>
+      </Nav>
+
+
     </div>
   )
 };
