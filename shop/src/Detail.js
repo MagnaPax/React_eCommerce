@@ -131,14 +131,26 @@ function Detail(props) {
           <Nav.Link eventKey="link-0" onClick={() => { 누른탭변경(0) }}>Active</Nav.Link>
         </Nav.Item>
         <Nav.Item>
-          <Nav.Link eventKey="link-1" onClick={() => { 누른탭변경(0) }}>Option 2</Nav.Link>
+          <Nav.Link eventKey="link-1" onClick={() => { 누른탭변경(1) }}>Option 2</Nav.Link>
         </Nav.Item>
       </Nav>
+
+      <TabContent 누른탭={누른탭} />
 
 
     </div>
   )
 };
+
+
+function TabContent(props) {
+  if (props.누른탭 === 0) {
+    return <div>0번째 내용입니다</div>
+  } else if (props.누른탭 === 1) {
+    return <div>1번째 내용입니다</div>
+  }
+
+}
 
 
 function ShoesStock(props) {
