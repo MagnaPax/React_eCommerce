@@ -140,7 +140,10 @@ function Detail(props) {
       </Nav>
 
 
-      {/* in은 애니메이션 켜는 스위치 */}
+      {/* 1. CSSTransition 으로 애니메이션 필요한 곳 감싸기
+          2. in={켜는스위치}, classNames={이름}, timeout={동작시간} 넣기
+          3. class 로 애니메이션 넣기
+          4. 원할 때 스위치 켜고 끄기 */}
       <CSSTransition in={스위치} classNames="wow" timeout={500}>
         <TabContent 누른탭={누른탭} 스위치변경={스위치변경} />
       </CSSTransition>
