@@ -139,9 +139,10 @@ function Detail(props) {
         </Nav.Item>
       </Nav>
 
+
       {/* in은 애니메이션 켜는 스위치 */}
       <CSSTransition in={스위치} classNames="wow" timeout={500}>
-        <TabContent 누른탭={누른탭} />
+        <TabContent 누른탭={누른탭} 스위치변경={스위치변경} />
       </CSSTransition>
 
 
@@ -151,6 +152,12 @@ function Detail(props) {
 
 
 function TabContent(props) {
+
+  // 컴포넌트가 등장/업데이트 때 스위치상태를 true로 
+  useEffect(() => {
+    props.스위치변경(true);
+  });
+
   if (props.누른탭 === 0) {
     return <div>0번째 내용입니다</div>
   } else if (props.누른탭 === 1) {
