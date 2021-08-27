@@ -132,10 +132,10 @@ function Detail(props) {
       {/* defaultActiveKey <- 기본으로 눌러진 버튼의 eventKey */}
       <Nav className="mt-5" variant="tabs" defaultActiveKey="link-0">
         <Nav.Item>
-          <Nav.Link eventKey="link-0" onClick={() => { 누른탭변경(0) }}>Active</Nav.Link>
+          <Nav.Link eventKey="link-0" onClick={() => { 스위치변경(false); 누른탭변경(0) }}>Active</Nav.Link>
         </Nav.Item>
         <Nav.Item>
-          <Nav.Link eventKey="link-1" onClick={() => { 누른탭변경(1) }}>Option 2</Nav.Link>
+          <Nav.Link eventKey="link-1" onClick={() => { 스위치변경(false); 누른탭변경(1) }}>Option 2</Nav.Link>
         </Nav.Item>
       </Nav>
 
