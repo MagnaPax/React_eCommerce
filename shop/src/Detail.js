@@ -136,7 +136,10 @@ function Detail(props) {
         </Nav.Item>
       </Nav>
 
-      <TabContent 누른탭={누른탭} />
+
+      <CSSTransition in={true} classNames="wow" timeout={500}>
+        <TabContent 누른탭={누른탭} />
+      </CSSTransition>
 
 
     </div>
