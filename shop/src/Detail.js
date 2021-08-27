@@ -66,8 +66,11 @@ function Detail(props) {
     `;
 
 
-  // 지금 누른 탭 번호
+  // 지금 누른 Tab 번호
   let [누른탭, 누른탭변경] = useState(0);
+
+  // Tab 의 애니메이션을 켜고 끄기 위한 상태
+  let [스위치, 스위치변경] = useState(false);
 
 
   return (
@@ -136,8 +139,8 @@ function Detail(props) {
         </Nav.Item>
       </Nav>
 
-
-      <CSSTransition in={true} classNames="wow" timeout={500}>
+      {/* in은 애니메이션 켜는 스위치 */}
+      <CSSTransition in={스위치} classNames="wow" timeout={500}>
         <TabContent 누른탭={누른탭} />
       </CSSTransition>
 
