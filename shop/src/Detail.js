@@ -65,6 +65,10 @@ function Detail(props) {
     `;
 
 
+  // 지금 누른 탭 번호
+  let [누른탭, 누른탭변경] = useState(0);
+
+
   return (
     <div className="container">
       <박스>
@@ -124,10 +128,10 @@ function Detail(props) {
       {/* defaultActiveKey <- 기본으로 눌러진 버튼의 eventKey */}
       <Nav className="mt-5" variant="tabs" defaultActiveKey="link-0">
         <Nav.Item>
-          <Nav.Link eventKey="link-0">Active</Nav.Link>
+          <Nav.Link eventKey="link-0" onClick={() => { 누른탭변경(0) }}>Active</Nav.Link>
         </Nav.Item>
         <Nav.Item>
-          <Nav.Link eventKey="link-1">Option 2</Nav.Link>
+          <Nav.Link eventKey="link-1" onClick={() => { 누른탭변경(0) }}>Option 2</Nav.Link>
         </Nav.Item>
       </Nav>
 
