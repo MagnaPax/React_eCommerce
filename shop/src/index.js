@@ -14,12 +14,28 @@ import { BrowserRouter } from 'react-router-dom';
 // 브라우저 주소창을 보면 사이트 주소 뒤에 '#' 이 붙게된다
 import { HashRouter } from 'react-router-dom';
 
+
+// redux 세팅
+// 1. import { Provider }
+import { Provider } from 'react-redux';
+// 3. createStore() 안에 state 저장
+let store = createStore(() => { return [{ id: 0, name: '멋진신발', quan: 2 }] });
+
+
+
 ReactDOM.render(
   <React.StrictMode>
 
     {/* App 컴포넌트를 감싸줬음 */}
     <BrowserRouter>
-      <App />
+
+      {/* 2. <Provider 로 App 컴포넌트 감싸기 */}
+      {/* 감싸진 애들은 props 없이도 state 공유 가능 */}
+      {/* 4. <Provider>에 props 전송 */}
+      <Provider store={store}>
+        <App />
+      </Provider>
+
     </BrowserRouter>
 
   </React.StrictMode>,
