@@ -6,6 +6,7 @@ import Data from './data.js';
 import { Link, Route, Switch } from 'react-router-dom';
 import Detail from './Detail.js';
 import axios from 'axios';
+import Cart from './Cart.js';
 
 
 // ** context 만들기 **
@@ -105,14 +106,20 @@ function App() {
         </Route>
 
 
+        {/* 장바구니 페이지. (Cart 컴포넌트) */}
+        <Route path="/cart">
+          <Cart />
+        </Route>
+
+
         {/* /:hahaha 는 /뒤의 모든문자 라는 의미 */}
         {/* Switch 때문에 선택되지 못함 */}
         <Route path="/:hahaha">
           <div>주소창에 / 뒤에 아무문자(주소)가 와도 이것 보여줘</div>
         </Route>
 
-      </Switch>
 
+      </Switch>
     </div >
   );
 }
