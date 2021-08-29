@@ -16,10 +16,12 @@ import { HashRouter } from 'react-router-dom';
 
 
 // redux 세팅
-// 1. import { Provider }
+// 1. import { Provider }, createStore
 import { Provider } from 'react-redux';
+import { createStore } from 'redux'
 // 3. createStore() 안에 state 저장
-let store = createStore(() => { return [{ id: 0, name: '멋진신발', quan: 2 }] });
+// let store = createStore(() => { return [{ id: 0, name: '멋진신발', quan: 2 }] });
+let 스토어자료 = createStore(() => { return [{ id: 0, name: '멋진신발', quan: 2 }] })
 
 
 
@@ -32,7 +34,7 @@ ReactDOM.render(
       {/* 2. <Provider 로 App 컴포넌트 감싸기 */}
       {/* 감싸진 애들은 props 없이도 state 공유 가능 */}
       {/* 4. <Provider>에 props 전송 */}
-      <Provider store={store}>
+      <Provider store={스토어자료}>
         <App />
       </Provider>
 
