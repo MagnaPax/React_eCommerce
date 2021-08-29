@@ -107,6 +107,7 @@ function App() {
 
 
         {/* 장바구니 페이지. (Cart 컴포넌트) */}
+        {/* 아래 hahaha가 아무문자나 입력해도 나오는 것이기 때문에 이것도 영향 받을 수 있지만 Switch 때문에 아래가 아니라 이것이 선택됨 */}
         <Route path="/cart">
           <Cart />
         </Route>
